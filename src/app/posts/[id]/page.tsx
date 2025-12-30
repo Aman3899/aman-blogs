@@ -8,8 +8,7 @@ import rehypeRaw from 'rehype-raw'
 import {
     Calendar,
     Clock,
-    ChevronLeft,
-    TrendingUp
+    ChevronLeft
 } from 'lucide-react'
 import PostActions from '@/components/posts/PostActions'
 

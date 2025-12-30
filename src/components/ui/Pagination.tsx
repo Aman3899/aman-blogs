@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 interface PaginationProps {
     currentPage: number
@@ -8,14 +11,21 @@ interface PaginationProps {
 }
 
 export default function Pagination({ currentPage, hasMore, total, pageSize }: PaginationProps) {
+    const searchParams = useSearchParams()
     const totalPages = Math.ceil(total / pageSize)
     const hasPrevious = currentPage > 1
+
+    const createPageUrl = (page: number) => {
+        const params = new URLSearchParams(searchParams.toString())
+        params.set('page', page.toString())
+        return `/?${params.toString()}`
+    }
 
     return (
         <div className="flex items-center justify-center gap-4 mt-12">
             {hasPrevious ? (
                 <Link
-                    href={`/?page=${currentPage - 1}`}
+                    href={createPageUrl(currentPage - 1)}
                     className="btn-secondary flex items-center gap-2"
                 >
                     <svg
@@ -60,7 +70,7 @@ export default function Pagination({ currentPage, hasMore, total, pageSize }: Pa
 
             {hasMore ? (
                 <Link
-                    href={`/?page=${currentPage + 1}`}
+                    href={createPageUrl(currentPage + 1)}
                     className="btn-secondary flex items-center gap-2"
                 >
                     Next

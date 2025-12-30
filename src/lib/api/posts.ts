@@ -3,18 +3,12 @@ import { BlogPost, PaginatedResponse, CreatePostInput } from '@/types/database'
 
 const POSTS_PER_PAGE = 5
 
-export async function getPosts(page: number = 1): Promise<PaginatedResponse<BlogPost>> {
+export async function getPosts(page: number = 1, query?: string): Promise<PaginatedResponse<BlogPost>> {
     const supabase = await createServerClient()
     const start = (page - 1) * POSTS_PER_PAGE
     const end = start + POSTS_PER_PAGE - 1
 
-    // Get total count
-    const { count } = await supabase
-        .from('blog_posts')
-        .select('*', { count: 'exact', head: true })
-
-    // Get paginated posts with author info
-    const { data, error } = await supabase
+    let supabaseQuery = supabase
         .from('blog_posts')
         .select(`
       *,
@@ -22,7 +16,14 @@ export async function getPosts(page: number = 1): Promise<PaginatedResponse<Blog
         full_name,
         email
       )
-    `)
+    `, { count: 'exact' })
+
+    if (query) {
+        // Search in title, body, and excerpt
+        supabaseQuery = supabaseQuery.or(`title.ilike.%${query}%,body.ilike.%${query}%,excerpt.ilike.%${query}%`)
+    }
+
+    const { data, count, error } = await supabaseQuery
         .order('published_date', { ascending: false })
         .range(start, end)
 
