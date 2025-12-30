@@ -61,7 +61,7 @@ export default function ProfileDropdown({ user }: ProfileDropdownProps) {
             {isOpen && (
                 <div className="absolute right-0 mt-2 w-64 bg-surface border border-border rounded-lg shadow-2xl py-2 z-50 animate-slide-in">
                     <div className="px-4 py-3 border-b border-border">
-                        <p className="text-sm font-medium text-text-primary">
+                        <p className="text-sm font-medium text-foreground">
                             {user.user_metadata?.full_name || 'User'}
                         </p>
                         <p className="text-xs text-text-secondary truncate">{user.email}</p>
@@ -70,7 +70,7 @@ export default function ProfileDropdown({ user }: ProfileDropdownProps) {
                     <div className="py-1">
                         <Link
                             href="/create-post"
-                            className="block px-4 py-2 text-sm text-text-primary hover:bg-surface-light transition-colors"
+                            className="block px-4 py-2 text-sm text-foreground hover:bg-muted transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
                             Create Post

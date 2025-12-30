@@ -39,58 +39,70 @@ export default function Header() {
     }, [])
 
     return (
-        <header className={`sticky top-0 z-50 backdrop-blur-md border-b transition-all duration-300 ${scrolled 
-            ? 'bg-card/90 border-border/80 shadow-lg' 
-            : 'bg-card/70 border-border/50'
+        <header className={`sticky top-0 z-50 backdrop-blur-xl border-b transition-all duration-300 ${scrolled 
+            ? 'bg-card/95 border-border/80 shadow-2xl shadow-purple-500/5' 
+            : 'bg-card/80 border-border/50'
             }`}>
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+            <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
                 <div className="flex items-center justify-between">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 group">
-                        <div className="relative">
-                            <div className="absolute -inset-1 bg-linear-to-r from-accent to-purple-600 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-300"></div>
-                            <div className="relative px-4 py-2 bg-card rounded-lg border border-border/50">
-                                <h1 className="text-xl md:text-2xl font-bold text-gradient">✨ Aman Blogs</h1>
+                    {/* Left side - Logo & Navigation */}
+                    <div className="flex items-center gap-6">
+                        <Link href="/" className="flex items-center gap-3 group">
+                            <div className="relative">
+                                <div className="absolute -inset-2 bg-gradient-to-r from-accent/20 via-purple-600/20 to-pink-600/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                                <div className="relative flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent/10 to-purple-600/10 dark:from-accent/20 dark:to-purple-600/20 rounded-xl border border-accent/30 group-hover:border-accent/50 transition-all">
+                                    <span className="text-2xl">✨</span>
+                                    <h1 className="text-lg md:text-xl font-bold">
+                                        <span className="text-gradient">Aman</span>
+                                        <span className="text-foreground ml-1">Blogs</span>
+                                    </h1>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-4">
-                        <Link
-                            href="/"
-                            className="text-muted-foreground hover:text-foreground transition-all duration-200 relative group"
-                        >
-                            <span>Home</span>
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-accent to-purple-600 group-hover:w-full transition-all duration-300"></span>
                         </Link>
 
-                        {user ? (
-                            <>
+                        {/* Desktop Navigation - Next to logo */}
+                        <div className="hidden lg:flex items-center gap-1">
+                            <Link
+                                href="/"
+                                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg transition-all duration-200"
+                            >
+                                Home
+                            </Link>
+
+                            {user && (
                                 <Link
                                     href="/create-post"
-                                    className="text-muted-foreground hover:text-foreground transition-all duration-200 relative group flex items-center gap-2"
+                                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent/10 rounded-lg transition-all duration-200 flex items-center gap-2"
                                 >
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                                     </svg>
                                     <span>Create</span>
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-accent to-purple-600 group-hover:w-full transition-all duration-300"></span>
                                 </Link>
-                                <ThemeToggle />
-                                <ProfileDropdown user={user} />
-                            </>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Right side - Auth & Theme */}
+                    <div className="hidden md:flex items-center gap-3">
+                        <ThemeToggle />
+                        {user ? (
+                            <ProfileDropdown user={user} />
                         ) : (
-                            <div className="flex items-center gap-3">
-                                <ThemeToggle />
+                            <div className="flex items-center gap-2">
                                 <Link
                                     href="/login"
-                                    className="text-muted-foreground hover:text-foreground transition-colors"
+                                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-all"
                                 >
                                     Login
                                 </Link>
-                                <Link href="/signup" className="btn-primary">
-                                    <span>Sign Up</span>
+                                <Link href="/signup" className="btn-primary px-4 py-2 text-sm">
+                                    <span className="flex items-center gap-2">
+                                        Sign Up
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                        </svg>
+                                    </span>
                                 </Link>
                             </div>
                         )}

@@ -26,11 +26,11 @@ export default function PostCard({ post }: PostCardProps) {
                 <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                         <div className="flex items-center gap-2 mb-3">
-                            <span className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-purple-600/20 text-purple-300 border border-purple-600/30">
+                            <span className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-purple-600/10 dark:bg-purple-600/20 text-purple-700 dark:text-purple-300 border border-purple-600/30">
                                 📚 {readTime} min read
                             </span>
                             {isNew && (
-                                <span className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-green-500/20 text-green-300 border border-green-500/30 animate-pulse">
+                                <span className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-green-500/10 dark:bg-green-500/20 text-green-700 dark:text-green-300 border border-green-500/30 animate-pulse">
                                     ✨ New
                                 </span>
                             )}
