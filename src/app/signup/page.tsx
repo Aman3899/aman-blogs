@@ -22,7 +22,7 @@ export default function SignUpPage() {
                     <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">
                         <span className="text-gradient">Join Aman Blogs</span>
                     </h1>
-                    <p className="text-text-secondary text-base sm:text-lg">
+                    <p className="text-muted-foreground text-base sm:text-lg">
                         Create an account to start sharing your stories
                     </p>
                 </div>
@@ -36,7 +36,7 @@ export default function SignUpPage() {
                             <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
                         </div>
                         <div className="relative flex justify-center">
-                            <span className="px-3 sm:px-4 py-1 bg-card text-text-secondary text-xs sm:text-sm font-medium rounded-full border border-border/50">
+                            <span className="px-3 sm:px-4 py-1 bg-card text-muted-foreground text-xs sm:text-sm font-medium rounded-full border border-border/50">
                                 Or sign up with email
                             </span>
                         </div>
@@ -46,7 +46,7 @@ export default function SignUpPage() {
                     <SignUpForm />
 
                     <div className="text-center pt-4 sm:pt-4 border-t border-border/50">
-                        <p className="text-sm text-text-secondary">
+                        <p className="text-sm text-muted-foreground">
                             Already have an account?{' '}
                             <Link href="/login" className="text-accent hover:text-accent-light font-semibold transition-colors inline-flex items-center gap-1 group">
                                 Sign in

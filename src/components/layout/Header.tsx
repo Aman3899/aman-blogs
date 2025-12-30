@@ -49,7 +49,7 @@ export default function Header() {
                     <Link href="/" className="flex items-center gap-2 group">
                         <div className="relative">
                             <div className="absolute -inset-1 bg-linear-to-r from-accent to-purple-600 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-300"></div>
-                            <div className="relative px-4 py-2 bg-surface rounded-lg border border-border/50">
+                            <div className="relative px-4 py-2 bg-card rounded-lg border border-border/50">
                                 <h1 className="text-xl md:text-2xl font-bold text-gradient">✨ Aman Blogs</h1>
                             </div>
                         </div>
@@ -59,7 +59,7 @@ export default function Header() {
                     <div className="hidden md:flex items-center gap-4">
                         <Link
                             href="/"
-                            className="text-text-secondary hover:text-text-primary transition-all duration-200 relative group"
+                            className="text-muted-foreground hover:text-foreground transition-all duration-200 relative group"
                         >
                             <span>Home</span>
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-accent to-purple-600 group-hover:w-full transition-all duration-300"></span>
@@ -69,7 +69,7 @@ export default function Header() {
                             <>
                                 <Link
                                     href="/create-post"
-                                    className="text-text-secondary hover:text-text-primary transition-all duration-200 relative group flex items-center gap-2"
+                                    className="text-muted-foreground hover:text-foreground transition-all duration-200 relative group flex items-center gap-2"
                                 >
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -85,7 +85,7 @@ export default function Header() {
                                 <ThemeToggle />
                                 <Link
                                     href="/login"
-                                    className="text-text-secondary hover:text-text-primary transition-colors"
+                                    className="text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     Login
                                 </Link>
@@ -101,7 +101,7 @@ export default function Header() {
                         <ThemeToggle />
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="p-2 text-text-primary hover:bg-surface rounded-lg transition-colors"
+                            className="p-2 text-foreground hover:bg-muted rounded-lg transition-colors"
                             aria-label="Toggle menu"
                         >
                             {mobileMenuOpen ? (
@@ -124,7 +124,7 @@ export default function Header() {
                             <Link
                                 href="/"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="px-4 py-2.5 text-text-secondary hover:text-text-primary hover:bg-card rounded-lg transition-all text-sm"
+                                className="px-4 py-2.5 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-all text-sm"
                             >
                                 🏠 Home
                             </Link>
@@ -134,13 +134,13 @@ export default function Header() {
                                     <Link
                                         href="/create-post"
                                         onClick={() => setMobileMenuOpen(false)}
-                                        className="px-4 py-2.5 text-text-secondary hover:text-text-primary hover:bg-card rounded-lg transition-all flex items-center gap-2 text-sm"
+                                        className="px-4 py-2.5 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-all flex items-center gap-2 text-sm"
                                     >
                                         ✍️ Create Post
                                     </Link>
                                     <div className="px-4 py-2.5 bg-card/50 rounded-lg border border-border/50">
-                                        <p className="text-xs sm:text-sm text-text-secondary mb-1">Signed in as</p>
-                                        <p className="text-xs sm:text-sm font-medium text-text-primary truncate">
+                                        <p className="text-xs sm:text-sm text-muted-foreground mb-1">Signed in as</p>
+                                        <p className="text-xs sm:text-sm font-medium text-foreground truncate">
                                             {user.email}
                                         </p>
                                     </div>
@@ -160,7 +160,7 @@ export default function Header() {
                                     <Link
                                         href="/login"
                                         onClick={() => setMobileMenuOpen(false)}
-                                        className="px-4 py-2.5 text-text-secondary hover:text-text-primary hover:bg-card rounded-lg transition-all text-sm"
+                                        className="px-4 py-2.5 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-all text-sm"
                                     >
                                         🔐 Login
                                     </Link>

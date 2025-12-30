@@ -35,14 +35,14 @@ export default function PostCard({ post }: PostCardProps) {
                                 </span>
                             )}
                         </div>
-                        <h2 className="text-xl md:text-2xl font-bold text-text-primary group-hover:text-gradient transition-all duration-300 line-clamp-2 mb-3">
+                        <h2 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-gradient transition-all duration-300 line-clamp-2 mb-3">
                             {post.title}
                         </h2>
                     </div>
                 </div>
 
                 {/* Excerpt */}
-                <p className="text-text-secondary line-clamp-3 mb-4 leading-relaxed flex-1">
+                <p className="text-muted-foreground line-clamp-3 mb-4 leading-relaxed flex-1">
                     {post.excerpt || post.body.substring(0, 200)}...
                 </p>
 
@@ -59,8 +59,8 @@ export default function PostCard({ post }: PostCardProps) {
                             </div>
                         </div>
                         <div>
-                            <p className="text-sm font-semibold text-text-primary">{authorName}</p>
-                            <p className="text-xs text-text-secondary flex items-center gap-1">
+                            <p className="text-sm font-semibold text-foreground">{authorName}</p>
+                            <p className="text-xs text-muted-foreground flex items-center gap-1">
                                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>

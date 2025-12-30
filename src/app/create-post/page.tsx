@@ -31,7 +31,7 @@ export default async function CreatePostPage() {
                     <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">
                         <span className="text-gradient">Create New Post</span>
                     </h1>
-                    <p className="text-text-secondary text-base sm:text-lg">
+                    <p className="text-muted-foreground text-base sm:text-lg">
                         Share your thoughts, stories, and insights with the community
                     </p>
                 </div>

@@ -52,8 +52,8 @@ export default function Pagination({ currentPage, hasMore, total, pageSize }: Pa
                 </button>
             )}
 
-            <div className="px-4 py-2 bg-surface rounded-lg border border-border">
-                <span className="text-text-primary font-medium">
+            <div className="px-4 py-2 bg-card rounded-lg border border-border">
+                <span className="text-foreground font-medium">
                     Page {currentPage} of {totalPages}
                 </span>
             </div>

@@ -25,16 +25,16 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 relative">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
             <div className="inline-block mb-4">
-              <span className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-purple-600/20 text-purple-300 border border-purple-600/30 animate-bounce-in">
+              <span className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-purple-600/10 dark:bg-purple-600/20 text-purple-700 dark:text-purple-300 border border-purple-600/30 animate-bounce-in">
                 ✨ Welcome to the Community
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               <span className="text-gradient">Discover Amazing</span>
               <br />
-              <span className="text-text-primary">Stories & Insights</span>
+              <span className="text-foreground">Stories & Insights</span>
             </h1>
-            <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
               Join our vibrant community of writers and readers. Share your unique perspective and explore diverse content from talented creators worldwide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -57,15 +57,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             <div className="grid grid-cols-3 gap-6 md:gap-12 mt-16 pt-8 border-t border-border/50">
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-bold text-gradient">{total}+</div>
-                <div className="text-sm text-text-secondary">Posts Published</div>
+                <div className="text-sm text-muted-foreground">Posts Published</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-bold text-gradient">10k+</div>
-                <div className="text-sm text-text-secondary">Active Readers</div>
+                <div className="text-sm text-muted-foreground">Active Readers</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-bold text-gradient">100+</div>
-                <div className="text-sm text-text-secondary">Writers</div>
+                <div className="text-sm text-muted-foreground">Writers</div>
               </div>
             </div>
           </div>
@@ -75,11 +75,11 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       {/* Posts Section */}
       <div id="posts" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-text-primary">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Latest Posts
           </h2>
           {page === 1 && (
-            <span className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-purple-600/20 text-purple-300 border border-purple-600/30 animate-pulse">
+            <span className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-purple-600/10 dark:bg-purple-600/20 text-purple-700 dark:text-purple-300 border border-purple-600/30 animate-pulse">
               🔥 Trending
             </span>
           )}
@@ -87,9 +87,9 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
         {posts.length === 0 ? (
           <div className="text-center py-20 animate-fade-in">
-            <div className="inline-flex items-center justify-center p-8 rounded-2xl bg-surface/50 backdrop-blur-sm border border-border/50 mb-6">
+            <div className="inline-flex items-center justify-center p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 mb-6">
               <svg
-                className="w-24 h-24 text-text-secondary"
+                className="w-24 h-24 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -102,8 +102,8 @@ export default async function HomePage({ searchParams }: HomePageProps) {
                 />
               </svg>
             </div>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-text-primary">No posts yet</h2>
-            <p className="text-text-secondary mb-6 max-w-md mx-auto">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-foreground">No posts yet</h2>
+            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               Be the first to share your story and inspire others in our community!
             </p>
             <Link href="/signup" className="btn-primary">

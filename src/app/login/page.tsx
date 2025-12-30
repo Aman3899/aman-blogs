@@ -28,7 +28,7 @@ export default function LoginPage() {
                     <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">
                         <span className="text-gradient">Welcome Back</span>
                     </h1>
-                    <p className="text-text-secondary text-base sm:text-lg">
+                    <p className="text-muted-foreground text-base sm:text-lg">
                         Sign in to continue your journey
                     </p>
                 </div>
@@ -65,7 +65,7 @@ export default function LoginPage() {
                             <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
                         </div>
                         <div className="relative flex justify-center">
-                            <span className="px-3 sm:px-4 py-1 bg-card text-text-secondary text-xs sm:text-sm font-medium rounded-full border border-border/50">
+                            <span className="px-3 sm:px-4 py-1 bg-card text-muted-foreground text-xs sm:text-sm font-medium rounded-full border border-border/50">
                                 Or continue with
                             </span>
                         </div>
@@ -76,8 +76,8 @@ export default function LoginPage() {
                         <button
                             onClick={() => setActiveTab('password')}
                             className={`flex-1 py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base ${activeTab === 'password'
-                                ? 'bg-card text-text-primary shadow-lg shadow-accent/10 border border-accent/20'
-                                : 'text-text-secondary hover:text-text-primary hover:bg-surface/50'
+                                ? 'bg-card text-foreground shadow-lg shadow-accent/10 border border-accent/20'
+                                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                                 }`}
                         >
                             🔑 Password
@@ -85,8 +85,8 @@ export default function LoginPage() {
                         <button
                             onClick={() => setActiveTab('otp')}
                             className={`flex-1 py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base ${activeTab === 'otp'
-                                ? 'bg-card text-text-primary shadow-lg shadow-accent/10 border border-accent/20'
-                                : 'text-text-secondary hover:text-text-primary hover:bg-surface/50'
+                                ? 'bg-card text-foreground shadow-lg shadow-accent/10 border border-accent/20'
+                                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                                 }`}
                         >
                             ✨ Magic Link
@@ -100,7 +100,7 @@ export default function LoginPage() {
 
                     {/* Sign Up Link */}
                     <div className="text-center pt-4 sm:pt-6 border-t border-border/50">
-                        <p className="text-sm text-text-secondary">
+                        <p className="text-sm text-muted-foreground">
                             Don&apos;t have an account?{' '}
                             <Link
                                 href="/signup"
@@ -116,7 +116,7 @@ export default function LoginPage() {
                 </div>
 
                 {/* Security Notice */}
-                <p className="text-center text-xs text-text-secondary mt-6 flex items-center justify-center gap-2">
+                <p className="text-center text-xs text-muted-foreground mt-6 flex items-center justify-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
