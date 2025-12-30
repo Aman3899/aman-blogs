@@ -2,6 +2,8 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import CreatePostForm from '@/components/posts/CreatePostForm'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
     title: 'Create New Post | Aman Blogs',
     description: 'Share your story with the community',

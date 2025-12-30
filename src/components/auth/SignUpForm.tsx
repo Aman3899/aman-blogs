@@ -52,6 +52,7 @@ export default function SignUpForm() {
                 email: data.email,
                 password: data.password,
                 options: {
+                    emailRedirectTo: `${window.location.origin}/auth/callback`,
                     data: {
                         full_name: data.fullName,
                     },
@@ -60,6 +61,10 @@ export default function SignUpForm() {
 
             if (error) throw error
 
+            // Clear saved form data on successful signup
+            localStorage.removeItem('signupFullName')
+            localStorage.removeItem('signupEmail')
+            
             router.push('/login?message=Check your email to confirm your account')
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to sign up')

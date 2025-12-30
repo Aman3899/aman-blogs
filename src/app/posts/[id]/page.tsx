@@ -1,15 +1,10 @@
 import { notFound } from 'next/navigation'
-import { getPostById, getRecentPostIds } from '@/lib/api/posts'
+import { getPostById } from '@/lib/api/posts'
 import { formatDate } from '@/lib/utils'
+import Link from 'next/link'
 
-// Enable ISR - revalidate every 60 seconds
-export const revalidate = 60
-
-// Generate static params for the most recent posts
-export async function generateStaticParams() {
-    const postIds = await getRecentPostIds(10)
-    return postIds.map((id) => ({ id }))
-}
+// Use dynamic rendering for authenticated pages
+export const dynamic = 'force-dynamic'
 
 interface PostPageProps {
     params: Promise<{ id: string }>
@@ -48,13 +43,13 @@ export default async function PostPage({ params }: PostPageProps) {
                 <header className="mb-8">
                     <h1 className="mb-6">{post.title}</h1>
 
-                    <div className="flex items-center gap-4 p-4 bg-surface rounded-lg border border-border">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-purple-600 flex items-center justify-center text-white font-semibold">
+                    <div className="flex items-center gap-4 p-4 rounded-lg border border-border bg-card">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-purple-600 flex items-center justify-center text-white font-semibold shrink-0">
                             {authorName[0].toUpperCase()}
                         </div>
                         <div>
-                            <p className="font-medium text-text-primary">{authorName}</p>
-                            <p className="text-sm text-text-secondary">
+                            <p className="font-medium text-foreground">{authorName}</p>
+                            <p className="text-sm text-muted-foreground">
                                 Published on {formatDate(post.published_date)}
                             </p>
                         </div>
@@ -62,17 +57,17 @@ export default async function PostPage({ params }: PostPageProps) {
                 </header>
 
                 {/* Post Content */}
-                <div className="prose prose-invert prose-lg max-w-none">
-                    <div className="whitespace-pre-wrap text-text-secondary leading-relaxed">
+                <div className="prose prose-lg max-w-none dark:prose-invert">
+                    <div className="whitespace-pre-wrap text-foreground leading-relaxed">
                         {post.body}
                     </div>
                 </div>
 
                 {/* Back to Home */}
                 <div className="mt-12 pt-8 border-t border-border">
-                    <a
+                    <Link
                         href="/"
-                        className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors"
+                        className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-medium"
                     >
                         <svg
                             className="w-5 h-5"
@@ -88,7 +83,7 @@ export default async function PostPage({ params }: PostPageProps) {
                             />
                         </svg>
                         Back to all posts
-                    </a>
+                    </Link>
                 </div>
             </article>
         </div>

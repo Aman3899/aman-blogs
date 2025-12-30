@@ -11,6 +11,7 @@ export default function LoginPage() {
     const [activeTab, setActiveTab] = useState<'password' | 'otp'>('password')
     const searchParams = useSearchParams()
     const message = searchParams.get('message')
+    const error = searchParams.get('error')
 
     return (
         <div className="min-h-screen flex items-center justify-center py-8 sm:py-12 px-4">
@@ -31,6 +32,17 @@ export default function LoginPage() {
                         Sign in to continue your journey
                     </p>
                 </div>
+
+                {error && (
+                    <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-destructive/10 border border-destructive/30 backdrop-blur-sm animate-shake">
+                        <div className="flex items-center gap-2">
+                            <svg className="w-5 h-5 text-destructive shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p className="text-destructive text-sm font-medium">{error}</p>
+                        </div>
+                    </div>
+                )}
 
                 {message && (
                     <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm animate-slide-up">

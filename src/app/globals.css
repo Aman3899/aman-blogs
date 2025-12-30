@@ -295,6 +295,32 @@
 }
 
 @layer utilities {
+  /* Text color utilities */
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .text-text-primary {
+    color: hsl(var(--foreground));
+  }
+
+  .text-text-secondary {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .text-destructive {
+    color: hsl(var(--destructive));
+  }
+
+  .text-success {
+    color: hsl(var(--success));
+  }
+
+  .text-error {
+    color: hsl(var(--destructive));
+  }
+
+  /* Animation utilities */
   .animate-bounce-in {
     animation: bounceIn 0.6s ease-out;
   }
@@ -309,6 +335,10 @@
 
   .animate-scale-in {
     animation: scaleIn 0.4s ease-out;
+  }
+
+  .animate-shake {
+    animation: shake 0.4s ease-in-out;
   }
 
   .float {

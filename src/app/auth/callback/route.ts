@@ -7,19 +7,20 @@ export async function GET(request: NextRequest) {
     const next = searchParams.get('next') ?? '/'
 
     if (code) {
-        const cookieStore = request.cookies
+        const response = NextResponse.redirect(`${origin}${next}`)
+        
         const supabase = createServerClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
             process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
             {
                 cookies: {
                     getAll() {
-                        return cookieStore.getAll()
+                        return request.cookies.getAll()
                     },
                     setAll(cookiesToSet) {
-                        cookiesToSet.forEach(({ name, value, options }) =>
-                            cookieStore.set(name, value)
-                        )
+                        cookiesToSet.forEach(({ name, value, options }) => {
+                            response.cookies.set(name, value, options)
+                        })
                     },
                 },
             }
@@ -28,10 +29,13 @@ export async function GET(request: NextRequest) {
         const { error } = await supabase.auth.exchangeCodeForSession(code)
 
         if (!error) {
-            return NextResponse.redirect(`${origin}${next}`)
+            return response
         }
+        
+        // If there's an error, redirect to login with error message
+        return NextResponse.redirect(`${origin}/login?error=Could not verify email`)
     }
 
     // Return the user to an error page with instructions
-    return NextResponse.redirect(`${origin}/login?error=auth_error`)
+    return NextResponse.redirect(`${origin}/login?error=No verification code provided`)
 }

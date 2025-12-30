@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 // Enable ISR - revalidate every 60 seconds
 export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 interface HomePageProps {
   searchParams: Promise<{ page?: string }>
