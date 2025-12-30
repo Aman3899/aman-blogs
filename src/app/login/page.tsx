@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import LoginForm from '@/components/auth/LoginForm'
 import OTPLoginForm from '@/components/auth/OTPLoginForm'
 import GoogleAuthButton from '@/components/auth/GoogleAuthButton'
 
-export default function LoginPage() {
+function LoginContent() {
     const [activeTab, setActiveTab] = useState<'password' | 'otp'>('password')
     const searchParams = useSearchParams()
     const message = searchParams.get('message')
@@ -124,5 +124,17 @@ export default function LoginPage() {
                 </p>
             </div>
         </div>
+    )
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="w-10 h-10 border-4 border-accent/30 border-t-accent rounded-full animate-spin" />
+            </div>
+        }>
+            <LoginContent />
+        </Suspense>
     )
 }
