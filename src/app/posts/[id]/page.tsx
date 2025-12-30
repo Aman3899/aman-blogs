@@ -42,7 +42,7 @@ export default async function PostPage({ params }: PostPageProps) {
     const authorName = post.profiles?.full_name || post.profiles?.email || 'Anonymous'
 
     return (
-        <div className="container-custom py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
             <article className="max-w-3xl mx-auto animate-fade-in">
                 {/* Post Header */}
                 <header className="mb-8">

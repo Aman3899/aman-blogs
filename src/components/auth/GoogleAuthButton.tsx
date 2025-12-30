@@ -29,12 +29,18 @@ export default function GoogleAuthButton() {
         <button
             onClick={handleGoogleLogin}
             disabled={loading}
-            className="btn-google w-full disabled:opacity-50"
+            className="group relative w-full overflow-hidden rounded-xl bg-white dark:bg-white/10 backdrop-blur-xl border-2 border-gray-200 dark:border-white/20 px-6 py-4 font-semibold text-gray-900 dark:text-white shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
+            <div className="absolute inset-0 bg-linear-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
             {loading ? (
-                <div className="spinner border-gray-800" />
+                <div className="flex items-center justify-center gap-3">
+                    <div className="spinner border-purple-600" />
+                    <span>Connecting...</span>
+                </div>
             ) : (
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <div className="relative flex items-center justify-center gap-3">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="relative z-10">
                     <path
                         d="M19.6 10.227c0-.709-.064-1.39-.182-2.045H10v3.868h5.382a4.6 4.6 0 01-1.996 3.018v2.51h3.232c1.891-1.742 2.982-4.305 2.982-7.35z"
                         fill="#4285F4"
@@ -52,8 +58,14 @@ export default function GoogleAuthButton() {
                         fill="#EA4335"
                     />
                 </svg>
+                <span className="relative z-10 font-semibold">Continue with Google</span>
+                <div className="absolute right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2.5 transition-all duration-300">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </div>
+            </div>
             )}
-            <span>{loading ? 'Connecting...' : 'Continue with Google'}</span>
         </button>
     )
 }
